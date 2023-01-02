@@ -239,13 +239,16 @@ def main():
     winchester_location = sunrise_sunset.location(winchester_latitude, winchester_longitude, ss_verbose)
     sunrise = winchester_location.sunrise(date_given, zenith)
     sunset = winchester_location.sunset(date_given, zenith)
+    day_length = sunset - sunrise 
     
     if today:
-        message(0, "Sunrise in Winchester today is %i:%02i:%02i" % (sunrise.hour, sunrise.minute, sunrise.second))
-        message(0, "Sunset in Winchester today is %i:%02i:%02i" % (sunset.hour, sunset.minute, sunset.second))
+        message(0, "Sunrise in Winchester (UK) today is %i:%02i:%02i" % (sunrise.hour, sunrise.minute, sunrise.second))
+        message(0, "Sunset in Winchester (UK) today is %i:%02i:%02i" % (sunset.hour, sunset.minute, sunset.second))
+        message(0, "Day length in Winchester (UK) today is %s" % day_length)
     else:
-        message(0, "Sunrise in Winchester on %i-%02i-%02i is %i:%02i:%02i" % (sunrise.year, sunrise.month, sunrise.day, sunrise.hour, sunrise.minute, sunrise.second))
-        message(0, "Sunset in Winchester on %i-%02i-%02i is %i:%02i:%02i" % (sunset.year, sunset.month, sunset.day, sunset.hour, sunset.minute, sunset.second))
+        message(0, "Sunrise in Winchester (UK) on %i-%02i-%02i is %i:%02i:%02i" % (sunrise.year, sunrise.month, sunrise.day, sunrise.hour, sunrise.minute, sunrise.second))
+        message(0, "Sunset in Winchester (UK) on %i-%02i-%02i is %i:%02i:%02i" % (sunset.year, sunset.month, sunset.day, sunset.hour, sunset.minute, sunset.second))
+        message(0, "Day length in Winchester (UK) on %i-%02i-%02i is %s" % (sunset.year, sunset.month, sunset.day, day_length))
                 
     message(1, "Finished!")
     return(errors)
